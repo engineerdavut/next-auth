@@ -10,7 +10,7 @@ export default function AuthButtons() {
     return (
       <div className="flex items-center gap-4">
         <p>
-          Hoş geldin, <span className="font-bold">{session.user?.name || session.user?.email}</span>
+          Welcome, <span className="font-bold">{session.user?.name || session.user?.email}</span>
         </p>
         <button
           onClick={() => signOut()}

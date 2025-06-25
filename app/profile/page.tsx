@@ -1,7 +1,7 @@
-
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/route";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/lib/auth";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 export default async function Profile() {
   const session = await getServerSession(authOptions);
@@ -16,11 +16,23 @@ export default async function Profile() {
         <h1 className="text-2xl font-bold text-center mb-4">Profile Page</h1>
         <p className="text-center mb-6">This page is protected. Only logged in users can see it.</p>
         <div className="space-y-2">
-            <p><strong>Name:</strong> {session.user?.name}</p>
-            <p><strong>Email:</strong> {session.user?.email}</p>
-            <img src={session.user?.image ?? ''} alt="Profile Photo" className="rounded-full mx-auto mt-4" />
+          <p><strong>Name:</strong> {session.user?.name}</p>
+          <p><strong>Email:</strong> {session.user?.email}</p>
+          {session.user?.image && (
+            <div className="flex justify-center mt-4">
+              <Image 
+                src={session.user.image} 
+                alt="Profile Photo" 
+                width={80}
+                height={80}
+                className="rounded-full"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+
