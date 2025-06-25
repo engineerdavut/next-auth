@@ -59,9 +59,9 @@ export default function AdminPanel() {
           <div className="mt-8 bg-gray-50 p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Admin Information</h3>
             <div className="space-y-2">
-              <p><strong>Name:</strong> {session.user?.name}</p>
-              <p><strong>Email:</strong> {session.user?.email}</p>
-              <p><strong>Role:</strong> Administrator</p>
+              <p className="text-gray-800"><strong>Name:</strong> {session.user?.name}</p>
+              <p className="text-gray-800"><strong>Email:</strong> {session.user?.email}</p>
+              <p className="text-gray-800"><strong>Role:</strong> Administrator</p>
             </div>
           </div>
         </div>

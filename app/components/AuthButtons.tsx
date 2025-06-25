@@ -9,7 +9,7 @@ export default function AuthButtons() {
   if (session) {
     return (
       <div className="flex items-center gap-4">
-        <p>
+        <p className="text-gray-800">
           Welcome, <span className="font-bold">{session.user?.name || session.user?.email}</span>
         </p>
         <button
